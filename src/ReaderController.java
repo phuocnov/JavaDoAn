@@ -12,8 +12,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class ReaderController{
-    private int readerSize = 0;
-    private ArrayList<Reader> readers = new ArrayList<Reader>();
+    public int readerSize = 0;
+    public ArrayList<Reader> readers = new ArrayList<Reader>();
 
     ReaderController() throws FileNotFoundException, IOException{
         this.importData(readers);
@@ -36,7 +36,7 @@ public class ReaderController{
         }
     }
 
-    public void exportData(ArrayList<Reader> readers) throws IOException{
+    public void exportData() throws IOException{
         File file = new File("data/reader.txt");
         FileOutputStream fos;
         try {
@@ -61,11 +61,35 @@ public class ReaderController{
     }
     
     // For testing only, refactor when building UI frame
-    public void createNewReader(String name) throws IOException{
+    public Reader create(String name) throws IOException{
         Reader reader = new Reader();
         reader.CreateReader(name, LocalDate.now());
         this.readers.add(reader);
         this.readerSize+= 1;
-        this.exportData(readers);
+        this.exportData();
+
+        return reader;
+    }
+    public Reader find(String ID){
+        for (Reader reader : readers) {
+            if(reader.ID.compareTo(ID) == 0){
+                return reader;
+            }
+        }
+        return null;
+    }
+    public void adjustReader(String ID, String name) throws IOException{
+        Reader reader = find(ID);
+        if(reader != null){
+            reader.name = name;
+            this.exportData();
+        }
+    }
+    public void removeReader(String ID) throws IOException{
+        Reader reader = find(ID);
+        if(reader != null){
+            readers.remove(reader);
+            this.exportData();
+        }
     }
 }

@@ -4,18 +4,20 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class CLayout extends JFrame{
     JPanel panelOption = new JPanel();
-
     JPanel panelCont = new JPanel();
-    JPanel panel1 = new JPanel();
+    JPanel panelAddReader;
     JPanel panel2 = new JPanel();
+    JPanel panelFindReader = new JPanel();
 
     // Reader
     JButton btnAddReader = new JButton("Thêm độc giả");
     JButton btnAdjReader = new JButton("Sửa độc giả");
-    JButton btnSearchReader = new JButton("Tìm kiếm độc giả");
+    JButton btnFindReader = new JButton("Tìm kiếm độc giả");
     JButton btnRemoveReader = new JButton("Xoá độc giả");
 
     // Borrow, return book
@@ -32,12 +34,16 @@ public class CLayout extends JFrame{
     CardLayout cl = new CardLayout();
 
 
-    CLayout(){
+    CLayout() throws FileNotFoundException, IOException{
+        ReaderController readerController = new ReaderController();
+        panelAddReader = new ReaderViewAdd(readerController);
+        panelFindReader = new ReaderViewFind(readerController);
+
         panelOption.setBounds(0, 0, 200, 600);
         panelOption.setBackground(new Color(0xdddddd));
         panelOption.add(btnAddReader);
         panelOption.add(btnAdjReader);
-        panelOption.add(btnSearchReader);
+        panelOption.add(btnFindReader);
         panelOption.add(btnRemoveReader);
         panelOption.add(btnBorrowBook);
         panelOption.add(btnReturnBook);
@@ -49,25 +55,33 @@ public class CLayout extends JFrame{
         panelCont.setLayout(cl);
         panelCont.setBounds(200, 0, 800, 600);
         
-        panel1.setBackground(Color.RED);
+        // panelAddReader.setBackground(Color.RED);
         panel2.setBackground(Color.BLUE);
 
-        panelCont.add(panel1, "1");
+        panelCont.add(panelAddReader, "add reader");
         panelCont.add(panel2, "2");
-        cl.show(panelCont, "1");
+        panelCont.add(panelFindReader, "find reader");
+        cl.show(panelCont, "add reader");
     
         btnAddReader.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                cl.show(panelCont, "2");
+                cl.show(panelCont, "add reader");
             }
         });
         btnAdjReader.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                cl.show(panelCont, "1");
+                cl.show(panelCont, "2");
             }
         });
+        btnFindReader.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                cl.show(panelCont, "find reader");
+            }
+        });
+        
 
         this.add(panelCont);
         this.add(panelOption);

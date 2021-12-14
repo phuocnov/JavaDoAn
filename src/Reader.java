@@ -46,7 +46,9 @@ public class Reader {
         return ID;
     }
 
-    public void print(){
-        System.out.println("Name: "+ this.name + " ID: "+ this.ID + " Created at: "+ this.createDate);
+    public String print(){
+        String result = new String("Name: "+ this.name + " ID: "+ this.ID + " Created at: "+ this.createDate);
+        System.out.println(result);
+        return result;
     }
 }

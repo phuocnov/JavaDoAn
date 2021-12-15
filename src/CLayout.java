@@ -11,8 +11,9 @@ public class CLayout extends JFrame{
     JPanel panelOption = new JPanel();
     JPanel panelCont = new JPanel();
     JPanel panelAddReader;
-    JPanel panel2 = new JPanel();
+    JPanel panelAdjReader = new JPanel();
     JPanel panelFindReader = new JPanel();
+    JPanel panelRemoveReader = new JPanel();
 
     // Reader
     JButton btnAddReader = new JButton("Thêm độc giả");
@@ -38,6 +39,9 @@ public class CLayout extends JFrame{
         ReaderController readerController = new ReaderController();
         panelAddReader = new ReaderViewAdd(readerController);
         panelFindReader = new ReaderViewFind(readerController);
+        panelAdjReader = new ReaderViewAdjust(readerController);
+        panelRemoveReader = new ReaderViewDelete(readerController);
+        
 
         panelOption.setBounds(0, 0, 200, 600);
         panelOption.setBackground(new Color(0xdddddd));
@@ -55,12 +59,11 @@ public class CLayout extends JFrame{
         panelCont.setLayout(cl);
         panelCont.setBounds(200, 0, 800, 600);
         
-        // panelAddReader.setBackground(Color.RED);
-        panel2.setBackground(Color.BLUE);
 
         panelCont.add(panelAddReader, "add reader");
-        panelCont.add(panel2, "2");
+        panelCont.add(panelAdjReader, "adj reader");
         panelCont.add(panelFindReader, "find reader");
+        panelCont.add(panelRemoveReader, "remove reader");
         cl.show(panelCont, "add reader");
     
         btnAddReader.addActionListener(new ActionListener(){
@@ -72,7 +75,7 @@ public class CLayout extends JFrame{
         btnAdjReader.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                cl.show(panelCont, "2");
+                cl.show(panelCont, "adj reader");
             }
         });
         btnFindReader.addActionListener(new ActionListener(){
@@ -81,7 +84,12 @@ public class CLayout extends JFrame{
                 cl.show(panelCont, "find reader");
             }
         });
-        
+        btnRemoveReader.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                cl.show(panelCont, "remove reader");
+            }
+        });
 
         this.add(panelCont);
         this.add(panelOption);

@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class ReaderViewAdjust extends JPanel {
     JLabel labelTitle = new JLabel();
@@ -40,7 +41,13 @@ public class ReaderViewAdjust extends JPanel {
                     labelResult.setText("Người dùng không tồn tại, vui lòng thử lại " + fieldID.getText());
                 }
                 else{
-                    labelResult.setText("Thành công: " + reader.print());
+                    try {
+                        controller.adjustReader(reader, fieldName.getText());
+                        labelResult.setText("Thành công: " + reader.print());
+                    } catch (IOException e1) {
+                        // TODO Auto-generated catch block
+                        e1.printStackTrace();
+                    }
                 }
 
             }
@@ -49,7 +56,9 @@ public class ReaderViewAdjust extends JPanel {
         this.setBackground(new Color(0xeedddd));
         this.add(labelTitle);
         this.add(labelID);
+        this.add(labelName);
         this.add(fieldID);
+        this.add(fieldName);
         this.add(buttonAdj);
         this.add(labelResult);
         this.setLayout(null);

@@ -78,15 +78,13 @@ public class ReaderController{
         }
         return null;
     }
-    public void adjustReader(String ID, String name) throws IOException{
-        Reader reader = find(ID);
+    public void adjustReader(Reader reader, String name) throws IOException{
         if(reader != null){
             reader.name = name;
             this.exportData();
         }
     }
-    public void removeReader(String ID) throws IOException{
-        Reader reader = find(ID);
+    public void removeReader(Reader reader) throws IOException{
         if(reader != null){
             readers.remove(reader);
             this.exportData();

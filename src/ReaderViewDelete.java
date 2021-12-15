@@ -1,23 +1,25 @@
 package src;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
-public class ReaderViewFind extends JPanel {
+import javax.swing.*;
+
+public class ReaderViewDelete extends JPanel{
     JLabel labelTitle = new JLabel();
     JLabel labelID = new JLabel();
     JLabel labelResult = new JLabel();
     JTextField fieldName = new JTextField();
     JButton buttonFind = new JButton();
 
-    ReaderViewFind(ReaderController controller){
-        labelTitle.setText("Tìm kiếm độc giả");
+    ReaderViewDelete(ReaderController controller){
+        labelTitle.setText("Xoá kiếm độc giả");
         labelID.setText("Nhập ID người dùng");
         labelTitle.setHorizontalTextPosition(JLabel.CENTER);
         labelTitle.setFont(new Font("Arial", Font.PLAIN, 30));
-        buttonFind.setText("Tìm");
+        buttonFind.setText("Xoá");
         labelResult.setText("Status: ");
         labelTitle.setBounds(20,20, 600,70);
         labelID.setBounds(20, 80, 600, 20);
@@ -34,9 +36,12 @@ public class ReaderViewFind extends JPanel {
                     labelResult.setText("Người dùng không tồn tại, vui lòng thử lại ");
                 }
                 else{
-                    labelResult.setText("Thành công: " + reader.print());
-
-                   
+                    try {
+                        controller.removeReader(reader);
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
+                    // labelResult.setText("Thành công: " + reader.print());
                 }
 
             }

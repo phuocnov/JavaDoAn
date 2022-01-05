@@ -1,1 +1,32 @@
-0
+4
+NE0
+Nguoi trong muon nghe
+Spiderum
+Ky nang song
+4
+2
+10
+10
+HS1
+How to Draw Anime (Includes Anime, Manga and Chibi) Part 1 Drawing Anime Faces
+Joseph Stevenson
+Truyen tranh
+4
+2
+5
+5
+CP2
+Clean Code: A Handbook of Agile Software Craftsmanship
+Robert C. Martin
+Cong nghe
+4
+2
+5
+5
+CN3
+Code Complete: A Practical Handbook of Software Construction
+Steve McConnell
+Cong nghe4
+2
+5
+5

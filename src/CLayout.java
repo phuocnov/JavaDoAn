@@ -10,10 +10,13 @@ import java.io.IOException;
 public class CLayout extends JFrame{
     JPanel panelOption = new JPanel();
     JPanel panelCont = new JPanel();
+    
     JPanel panelAddReader;
     JPanel panelAdjReader = new JPanel();
     JPanel panelFindReader = new JPanel();
     JPanel panelRemoveReader = new JPanel();
+    
+    JPanel panelAddBook = new JPanel();
 
     // Reader
     JButton btnAddReader = new JButton("Thêm độc giả");
@@ -37,11 +40,14 @@ public class CLayout extends JFrame{
 
     CLayout() throws FileNotFoundException, IOException{
         ReaderController readerController = new ReaderController();
+        BookController bookController = new BookController();
+
         panelAddReader = new ReaderViewAdd(readerController);
         panelFindReader = new ReaderViewFind(readerController);
         panelAdjReader = new ReaderViewAdjust(readerController);
         panelRemoveReader = new ReaderViewDelete(readerController);
         
+        panelAddBook = new BookViewAdd(bookController);
 
         panelOption.setBounds(0, 0, 200, 600);
         panelOption.setBackground(new Color(0xdddddd));
@@ -64,6 +70,7 @@ public class CLayout extends JFrame{
         panelCont.add(panelAdjReader, "adj reader");
         panelCont.add(panelFindReader, "find reader");
         panelCont.add(panelRemoveReader, "remove reader");
+        panelCont.add(panelAddBook, "add book");
         cl.show(panelCont, "add reader");
     
         btnAddReader.addActionListener(new ActionListener(){
@@ -90,6 +97,15 @@ public class CLayout extends JFrame{
                 cl.show(panelCont, "remove reader");
             }
         });
+
+        btnAddBook.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                cl.show(panelCont, "add book");
+            }
+        });
+
+
 
         this.add(panelCont);
         this.add(panelOption);

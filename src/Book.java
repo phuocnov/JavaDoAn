@@ -57,8 +57,8 @@ public class Book {
             br = new BufferedReader(new FileReader(file));
             String strLine;
             if((strLine = br.readLine())!= null){
-                // System.out.println("line" + strLine);
-                ID = String.valueOf(this.name.charAt(0)+ String.valueOf(this.name.charAt(this.name.length() - 1)) + strLine);
+                rs = String.valueOf(this.name.charAt(0)+ String.valueOf(this.name.charAt(this.name.length() - 1)) + strLine);
+                System.out.println("ID" + rs);
             }
             br.close();
         }catch(IOException e){

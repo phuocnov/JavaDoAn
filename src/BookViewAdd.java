@@ -1,11 +1,8 @@
 package src;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.event.*;
 
 
 public class BookViewAdd extends JPanel{

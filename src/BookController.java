@@ -40,7 +40,6 @@ public class BookController {
                 position.floor = Integer.parseInt(br.readLine());
                 number = Integer.parseInt(br.readLine());
                 numberAvaiable = Integer.parseInt(br.readLine());
-
                 Book book = new Book(ID, name, author, category, position, number, numberAvaiable);
                 this.books.add(book);
             }
@@ -64,13 +63,13 @@ public class BookController {
                 bw.newLine();
                 bw.write(book.author);
                 bw.newLine();
-                bw.write(book.position.shelve);
+                bw.write(Integer.toString(book.position.shelve));
                 bw.newLine();
-                bw.write(book.position.floor);
+                bw.write(Integer.toString(book.position.floor));
                 bw.newLine();
-                bw.write(book.number);
+                bw.write(Integer.toString(book.number));
                 bw.newLine();
-                bw.write(book.numberAvaiable);
+                bw.write(Integer.toString(book.numberAvaiable));
                 bw.newLine();
 
             }

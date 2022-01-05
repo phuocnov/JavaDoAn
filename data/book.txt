@@ -2,7 +2,6 @@
 NE0
 Nguoi trong muon nghe
 Spiderum
-Ky nang song
 4
 2
 10
@@ -10,7 +9,6 @@ Ky nang song
 HS1
 How to Draw Anime (Includes Anime, Manga and Chibi) Part 1 Drawing Anime Faces
 Joseph Stevenson
-Truyen tranh
 4
 2
 5
@@ -18,7 +16,6 @@ Truyen tranh
 CP2
 Clean Code: A Handbook of Agile Software Craftsmanship
 Robert C. Martin
-Cong nghe
 4
 2
 5
@@ -26,7 +23,7 @@ Cong nghe
 CN3
 Code Complete: A Practical Handbook of Software Construction
 Steve McConnell
-Cong nghe4
+4
 2
 5
 5

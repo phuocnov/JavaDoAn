@@ -63,6 +63,8 @@ public class BookController {
                 bw.newLine();
                 bw.write(book.author);
                 bw.newLine();
+                bw.write(book.category);
+                bw.newLine();;
                 bw.write(Integer.toString(book.position.shelve));
                 bw.newLine();
                 bw.write(Integer.toString(book.position.floor));

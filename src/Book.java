@@ -57,7 +57,7 @@ public class Book {
             br = new BufferedReader(new FileReader(file));
             String strLine;
             if((strLine = br.readLine())!= null){
-                rs = String.valueOf(this.name.charAt(0)+ String.valueOf(this.name.charAt(this.name.length() - 1)) + strLine);
+                rs = String.valueOf(this.name.charAt(0)).toUpperCase()+ String.valueOf(this.name.charAt(this.name.length() - 1)).toUpperCase() + strLine;
                 System.out.println("ID" + rs);
             }
             br.close();

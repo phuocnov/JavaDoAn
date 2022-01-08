@@ -22,4 +22,11 @@ Chương trình quản lý thư viện đơn giản, gồm các chức năng:
     Model thiết lập các thuộc tính, phương thức khởi tạo
     Controller dựa trên Model cung cấp các hàm tương tác với Model, đồng thời đảm nhiệm vai trò lưu, tải dữ liệu
     View cung cấp cho người dùng giao diện để tương tác với phần mềm.
-            
+    
+
+## Cấu trúc file data
+ reader.txt: Dòng đầu tiên của file thể hiện số lượng độc giả hiện tại
+            Cứ 3 Dòng tiếp theo thể hiện cho 1 độc giả, tương ứng mã, tên, ngày tạo của độc giả.
+
+book.txt: Dòng đầu tiên của file lưu số lượng sách hiện tại
+        các dòng tiếp theo lưu thông tin của 1 sách theo thứ tự: ID, tên, thể loại, vịa trí (số tủ, số kệ), số lượng nhập, số lượng có sẵn.

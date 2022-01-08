@@ -10,10 +10,15 @@ import java.io.IOException;
 public class CLayout extends JFrame{
     JPanel panelOption = new JPanel();
     JPanel panelCont = new JPanel();
+    
     JPanel panelAddReader;
     JPanel panelAdjReader = new JPanel();
     JPanel panelFindReader = new JPanel();
     JPanel panelRemoveReader = new JPanel();
+    
+    JPanel panelAddBook = new JPanel();
+    JPanel panelSearchBook = new JPanel();
+    JPanel panelAdjBook = new JPanel();
 
     // Reader
     JButton btnAddReader = new JButton("Thêm độc giả");
@@ -37,12 +42,17 @@ public class CLayout extends JFrame{
 
     CLayout() throws FileNotFoundException, IOException{
         ReaderController readerController = new ReaderController();
+        BookController bookController = new BookController();
+
         panelAddReader = new ReaderViewAdd(readerController);
         panelFindReader = new ReaderViewFind(readerController);
         panelAdjReader = new ReaderViewAdjust(readerController);
         panelRemoveReader = new ReaderViewDelete(readerController);
-        
 
+        panelAddBook = new BookViewAdd(bookController);
+        panelSearchBook = new BookViewFind(bookController);
+        panelAdjBook = new BookViewAdjust(bookController);
+        
         panelOption.setBounds(0, 0, 200, 600);
         panelOption.setBackground(new Color(0xdddddd));
         panelOption.add(btnAddReader);
@@ -64,6 +74,11 @@ public class CLayout extends JFrame{
         panelCont.add(panelAdjReader, "adj reader");
         panelCont.add(panelFindReader, "find reader");
         panelCont.add(panelRemoveReader, "remove reader");
+        panelCont.add(panelAddBook, "add book");
+        panelCont.add(panelSearchBook, "search book");
+        panelCont.add(panelAdjBook, "adj book");
+
+
         cl.show(panelCont, "add reader");
     
         btnAddReader.addActionListener(new ActionListener(){
@@ -88,6 +103,26 @@ public class CLayout extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e){
                 cl.show(panelCont, "remove reader");
+            }
+        });
+
+        btnAddBook.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                cl.show(panelCont, "add book");
+            }
+        });
+
+        btnSearchBook.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                cl.show(panelCont, "search book");
+            }
+        });
+        btnAdjBook.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                cl.show(panelCont, "adj book");
             }
         });
 

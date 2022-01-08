@@ -24,7 +24,6 @@ public class ReaderViewAdd extends JPanel {
         labelTitle.setFont(new Font("Arial", Font.PLAIN, 30));
         buttonAdd.setText("Thêm");
         labelResult.setText("Status: ");
-        
         labelTitle.setBounds(20,20, 600,70);
         labelName.setBounds(20, 80, 600, 20);
         fieldName.setSize(100, 30);

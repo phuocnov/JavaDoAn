@@ -45,7 +45,6 @@ public class ReaderViewAdjust extends JPanel {
                         controller.adjustReader(reader, fieldName.getText());
                         labelResult.setText("Thành công: " + reader.print());
                     } catch (IOException e1) {
-                        // TODO Auto-generated catch block
                         e1.printStackTrace();
                     }
                 }

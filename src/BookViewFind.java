@@ -1,21 +1,23 @@
 package src;
 
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
+import javax.swing.*;
 
-public class ReaderViewFind extends JPanel {
+public class BookViewFind extends JPanel{
     private JLabel jcomp1;
     private JLabel jcomp2;
     private JTextField jcomp3;
     private JButton jcomp4;
     private JList<String> jcomp5;
     private JLabel jcomp6;
+    
+    // ArrayList<Book> jcomp5Items = new ArrayList<Book>();
 
-    ReaderViewFind(ReaderController controller){
-        jcomp1 = new JLabel ("TÌM KIẾM NGƯỜI DÙNG");
-        jcomp2 = new JLabel ("Nhập tên người cần tìm kiếm");
+    BookViewFind(BookController controller){
+        //construct components
+        jcomp1 = new JLabel ("TÌM KIẾM SÁCH");
+        jcomp2 = new JLabel ("Nhập tên sách cần tìm kiếm");
         jcomp3 = new JTextField (5);
         jcomp4 = new JButton ("Tìm kiếm");
         jcomp5 = new JList<String>();
@@ -38,7 +40,7 @@ public class ReaderViewFind extends JPanel {
         jcomp2.setBounds (10, 50, 175, 25);
         jcomp3.setBounds (180, 50, 220, 25);
         jcomp4.setBounds (10, 90, 100, 25);
-        jcomp5.setBounds (10, 200, 395, 150);
+        jcomp5.setBounds (10, 200, 500, 150);
         jcomp6.setBounds (15, 175, 100, 25);
 
         jcomp4.addActionListener(new ActionListener(){
@@ -47,9 +49,9 @@ public class ReaderViewFind extends JPanel {
                 String searchText = jcomp3.getText();
                 DefaultListModel<String> jcom5Items = new DefaultListModel<String>();
                 
-                for (Reader reader : controller.readers) {
-                    if(reader.name.contains(searchText)){
-                        jcom5Items.addElement(reader.print());
+                for (Book book : controller.books) {
+                    if(book.name.contains(searchText)){
+                        jcom5Items.addElement(book.print());
                     }
                 }
                 jcomp5.setModel(jcom5Items);

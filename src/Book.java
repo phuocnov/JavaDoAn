@@ -67,7 +67,10 @@ public class Book {
         return rs;
     }
 
-    public void print(){
-        System.out.println("|ID: " + this.ID + " | Name: " + this.name + " | Author: " + this.author + " | Category: " + this.category + " | Shelve: " + this.position.shelve + " | Floor: " + this.position.floor + " | Available: " + this.numberAvaiable + "/" + this.number);
+    public String print(){
+        String rs = "|ID: " + this.ID + " | Name: " + this.name + " | Author: " + this.author + " | Category: " + this.category + " | Shelve: " + this.position.shelve + " | Floor: " + this.position.floor + " | Available: " + this.numberAvaiable + "/" + this.number;
+        System.out.println(rs);
+
+        return rs;
     }
 }

@@ -16,8 +16,10 @@ public class Borrow {
         this.book = book;
         this.reader = reader;
         this.dateBorrow = LocalDate.parse(dateBorrow);
-        this.dateReturn = LocalDate.parse(dateReturn);
         this.isReturned = isReturned;
+        if(isReturned){
+            this.dateReturn = LocalDate.parse(dateReturn);
+        }
     }
     public String print(){
         String rs;

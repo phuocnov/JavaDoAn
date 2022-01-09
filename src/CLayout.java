@@ -43,6 +43,14 @@ public class CLayout extends JFrame{
     CLayout() throws FileNotFoundException, IOException{
         ReaderController readerController = new ReaderController();
         BookController bookController = new BookController();
+        BorrowController borrowController = new BorrowController(readerController, bookController);
+
+        // Testing
+        String readerID = "NC0";
+        String bookID = "NE0";
+        // borrowController.borrow(readerID, bookID);
+        borrowController.returnBook(readerID, bookID, "2022-01-09");
+
 
         panelAddReader = new ReaderViewAdd(readerController);
         panelFindReader = new ReaderViewFind(readerController);

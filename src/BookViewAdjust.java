@@ -51,7 +51,7 @@ public class BookViewAdjust extends JPanel {
                     jcomp6.setText("Mã sách không tồn tại, vui lòng thử lại"); 
                  }
                  else{
-                     BookViewAdjustSub adjustSub = new BookViewAdjustSub(book, controller);
+                     new BookViewAdjustSub(book, controller);
                  }
 
             }

@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 import java.io.OutputStreamWriter;
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 
 
 public class BorrowController {
@@ -119,6 +120,23 @@ public class BorrowController {
                 bookController.exportData();
             }
         }
+    }
+    public boolean returnBookCheck(String readerID, String bookID, String dateBorrow){
+        Reader reader = readerController.find(readerID);
+        Book book = bookController.find(bookID);
+        try{
+            LocalDate date = LocalDate.parse(dateBorrow);
+            if(reader != null && book != null){
+                for (Borrow borrow : borrowData) {
+                    if(borrow.reader == reader && borrow.book == book && borrow.dateBorrow.isEqual(date)) return true;
+                }
+            }
+            else return false;
+        }
+        catch(DateTimeParseException  e){
+            return false;
+        }
+        return false;
     }
     // Kiểm tra xem người dùng đang mượn những cuốn sách nào
     public ArrayList<Borrow> showBookBorrowed(String readerID){

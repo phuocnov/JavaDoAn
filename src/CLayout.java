@@ -58,7 +58,7 @@ public class CLayout extends JFrame{
         panelAdjBook = new BookViewAdjust(bookController);
 
         panelBorrowBook = new BorrowView(borrowController);
-
+        panelReturnBook = new ReturnView(borrowController);
         
         
         panelOption.setBounds(0, 0, 200, 600);
@@ -86,6 +86,7 @@ public class CLayout extends JFrame{
         panelCont.add(panelSearchBook, "search book");
         panelCont.add(panelAdjBook, "adj book");
         panelCont.add(panelBorrowBook, "borrow book");
+        panelCont.add(panelReturnBook, "return book");
 
 
         cl.show(panelCont, "add reader");
@@ -138,6 +139,12 @@ public class CLayout extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e){
                 cl.show(panelCont, "borrow book");
+            }
+        });
+        btnReturnBook.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                cl.show(panelCont, "return book");
             }
         });
 

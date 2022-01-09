@@ -16,7 +16,6 @@ public class BookController {
 
     BookController() throws FileNotFoundException, IOException {
         this.importData();
-        printBooks();
     }
 
     public void importData() throws FileNotFoundException, IOException {

@@ -1,12 +1,8 @@
 package src;
 
-import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
-import java.time.LocalDate;
-
 import javax.swing.*;
-import javax.swing.event.*;
 
 public class ReturnView extends JPanel{
     private JLabel labelTittle;

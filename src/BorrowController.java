@@ -9,8 +9,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import javax.management.relation.RelationServiceNotRegisteredException;
-
 import java.io.OutputStreamWriter;
 import java.time.LocalDate;
 
@@ -28,10 +26,10 @@ public class BorrowController {
 
     public void importData()
             throws FileNotFoundException, IOException {
-        String readerID = "";
-        String bookID = "";
-        String borrowDate = "";
-        String isReturned = "";
+        String readerID;
+        String bookID;
+        String borrowDate;
+        String isReturned;
         String returnedDate = "";
 
         try (BufferedReader br = new BufferedReader(new FileReader("data/borrowdata.txt"))) {
@@ -41,14 +39,14 @@ public class BorrowController {
                 bookID = br.readLine();
                 borrowDate = br.readLine();
                 isReturned = br.readLine();
-                if (isReturned == "true") {
+                if (isReturned.equals("true")) {
                     returnedDate = br.readLine();
                 }
                 Reader reader = readerController.find(readerID);
                 Book book = bookController.find(bookID);
                 if (reader != null && book != null) {
                     Borrow borrow = new Borrow(book, reader, borrowDate, returnedDate,
-                            Boolean.parseBoolean(isReturned));
+                    Boolean.parseBoolean(isReturned));
                     borrowData.add(borrow);
                 }
             }
@@ -80,6 +78,13 @@ public class BorrowController {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+    }
+    public boolean check(String readerID, String bookID){
+        Reader reader = readerController.find(readerID);
+        Book book = bookController.find(bookID);
+
+        if(reader != null && book != null) return true;
+        else return false;
     }
     public void borrow(String readerID, String bookID) throws IOException{
         Reader reader = readerController.find(readerID);

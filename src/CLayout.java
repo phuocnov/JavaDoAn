@@ -20,6 +20,9 @@ public class CLayout extends JFrame{
     JPanel panelSearchBook = new JPanel();
     JPanel panelAdjBook = new JPanel();
 
+    JPanel panelBorrowBook = new JPanel();
+    JPanel panelReturnBook = new JPanel();
+    
     // Reader
     JButton btnAddReader = new JButton("Thêm độc giả");
     JButton btnAdjReader = new JButton("Sửa độc giả");
@@ -45,13 +48,6 @@ public class CLayout extends JFrame{
         BookController bookController = new BookController();
         BorrowController borrowController = new BorrowController(readerController, bookController);
 
-        // Testing
-        String readerID = "NC0";
-        String bookID = "NE0";
-        // borrowController.borrow(readerID, bookID);
-        borrowController.returnBook(readerID, bookID, "2022-01-09");
-
-
         panelAddReader = new ReaderViewAdd(readerController);
         panelFindReader = new ReaderViewFind(readerController);
         panelAdjReader = new ReaderViewAdjust(readerController);
@@ -60,6 +56,10 @@ public class CLayout extends JFrame{
         panelAddBook = new BookViewAdd(bookController);
         panelSearchBook = new BookViewFind(bookController);
         panelAdjBook = new BookViewAdjust(bookController);
+
+        panelBorrowBook = new BorrowView(borrowController);
+
+        
         
         panelOption.setBounds(0, 0, 200, 600);
         panelOption.setBackground(new Color(0xdddddd));
@@ -85,6 +85,7 @@ public class CLayout extends JFrame{
         panelCont.add(panelAddBook, "add book");
         panelCont.add(panelSearchBook, "search book");
         panelCont.add(panelAdjBook, "adj book");
+        panelCont.add(panelBorrowBook, "borrow book");
 
 
         cl.show(panelCont, "add reader");
@@ -131,6 +132,12 @@ public class CLayout extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e){
                 cl.show(panelCont, "adj book");
+            }
+        });
+        btnBorrowBook.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                cl.show(panelCont, "borrow book");
             }
         });
 

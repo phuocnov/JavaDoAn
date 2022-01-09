@@ -1,7 +1,6 @@
 package src;
 
 import javax.swing.JFrame;
-import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
 
@@ -102,7 +101,6 @@ public class BookViewAdjustSub {
                 try {
                     controller.exportData();
                 } catch (IOException e1) {
-                    // TODO Auto-generated catch block
                     e1.printStackTrace();
                 }
                 frame.dispose();

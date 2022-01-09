@@ -98,7 +98,7 @@ public class BookController {
     }
     public Book find(String ID){
         for (Book book : books) {
-            if(book.ID.compareTo(ID) == 0){
+            if(book.ID.equals(ID)){
                 return book;
             }
         }

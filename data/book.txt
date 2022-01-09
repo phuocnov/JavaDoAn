@@ -6,7 +6,7 @@ Ky nang song
 4
 2
 10
-10
+9
 HS1
 How to Draw Anime (Includes Anime, Manga and Chibi) Part 1 Drawing Anime Faces
 Joseph Stevenson
@@ -14,7 +14,7 @@ Truyen tranh
 4
 2
 5
-5
+4
 CP2
 Clean Code: A Handbook of Agile Software Craftsmanship
 Robert C. Martin

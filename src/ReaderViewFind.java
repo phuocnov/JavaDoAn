@@ -21,6 +21,8 @@ public class ReaderViewFind extends JPanel {
         jcomp5 = new JList<String>();
         jcomp6 = new JLabel ("Kết quả");
 
+        jcomp5.setModel(controller.toDefaultList());
+
         //adjust size and set layout
         setPreferredSize (new Dimension (944, 574));
         setLayout (null);

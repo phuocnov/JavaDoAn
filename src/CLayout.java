@@ -22,6 +22,7 @@ public class CLayout extends JFrame{
 
     JPanel panelBorrowBook = new JPanel();
     JPanel panelReturnBook = new JPanel();
+    JPanel panelBorrowData = new JPanel();
     
     // Reader
     JButton btnAddReader = new JButton("Thêm độc giả");
@@ -32,6 +33,7 @@ public class CLayout extends JFrame{
     // Borrow, return book
     JButton btnBorrowBook = new JButton("Mượn sách");
     JButton btnReturnBook = new JButton("Trả sách");
+    JButton btnShowData = new JButton("Sách đang mượn");
     
     // Book
     JButton btnAddBook = new JButton("Thêm sách");
@@ -59,20 +61,21 @@ public class CLayout extends JFrame{
 
         panelBorrowBook = new BorrowView(borrowController);
         panelReturnBook = new ReturnView(borrowController);
-        
+        panelBorrowData = new BorrowData(borrowController);
         
         panelOption.setBounds(0, 0, 200, 600);
         panelOption.setBackground(new Color(0xdddddd));
         panelOption.add(btnAddReader);
         panelOption.add(btnAdjReader);
         panelOption.add(btnFindReader);
-        panelOption.add(btnRemoveReader);
+        // panelOption.add(btnRemoveReader);
         panelOption.add(btnBorrowBook);
         panelOption.add(btnReturnBook);
         panelOption.add(btnAddBook);
         panelOption.add(btnAdjBook);
         panelOption.add(btnSearchBook);
-        panelOption.add(btnRemoveBook);
+        panelOption.add(btnShowData);
+        // panelOption.add(btnRemoveBook);
 
         panelCont.setLayout(cl);
         panelCont.setBounds(200, 0, 800, 600);
@@ -87,7 +90,7 @@ public class CLayout extends JFrame{
         panelCont.add(panelAdjBook, "adj book");
         panelCont.add(panelBorrowBook, "borrow book");
         panelCont.add(panelReturnBook, "return book");
-
+        panelCont.add(panelBorrowData, "data borrow");
 
         cl.show(panelCont, "add reader");
     
@@ -145,6 +148,13 @@ public class CLayout extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e){
                 cl.show(panelCont, "return book");
+            }
+        });
+
+        btnShowData.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                cl.show(panelCont, "data borrow");
             }
         });
 

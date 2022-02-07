@@ -10,6 +10,8 @@ import java.io.OutputStreamWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.swing.DefaultListModel;
+
 public class BookController {
     public ArrayList<Book> books = new ArrayList<Book>();
     public int bookSize = 0;
@@ -72,7 +74,6 @@ public class BookController {
                 bw.newLine();
                 bw.write(Integer.toString(book.numberAvaiable));
                 bw.newLine();
-
             }
             bw.close();
         } catch (FileNotFoundException e) {
@@ -130,6 +131,13 @@ public class BookController {
             books.remove(book);
             exportData();
         }
+    }
+    public DefaultListModel<String> toDefaultList(){
+        DefaultListModel<String> rs = new DefaultListModel<String>();
+        for (Book book : books) {
+            rs.addElement(book.print());
+        }
+        return rs;
     }
     public void printBooks(){
         for (Book book : books) {

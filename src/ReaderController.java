@@ -11,6 +11,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.swing.DefaultListModel;
+
 public class ReaderController{
     public int readerSize = 0;
     public ArrayList<Reader> readers = new ArrayList<Reader>();
@@ -83,6 +85,13 @@ public class ReaderController{
             reader.name = name;
             this.exportData();
         }
+    }
+    public DefaultListModel<String> toDefaultList(){
+        DefaultListModel<String> rs = new DefaultListModel<String>();
+        for (Reader reader : readers) {
+            rs.addElement(reader.print());
+        }
+        return rs;
     }
     public void removeReader(Reader reader) throws IOException{
         if(reader != null){

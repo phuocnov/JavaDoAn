@@ -19,10 +19,11 @@ public class BookViewFind extends JPanel{
         jcomp1 = new JLabel ("TÌM KIẾM SÁCH");
         jcomp2 = new JLabel ("Nhập tên sách cần tìm kiếm");
         jcomp3 = new JTextField (5);
-        jcomp4 = new JButton ("Tìm kiếm");
         jcomp5 = new JList<String>();
+        jcomp4 = new JButton ("Tìm kiếm");
         jcomp6 = new JLabel ("Kết quả");
-
+        
+        jcomp5.setModel(controller.toDefaultList());
         //adjust size and set layout
         setPreferredSize (new Dimension (944, 574));
         setLayout (null);

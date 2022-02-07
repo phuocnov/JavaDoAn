@@ -9,6 +9,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.swing.DefaultListModel;
+
 import java.io.OutputStreamWriter;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
@@ -179,5 +181,21 @@ public class BorrowController {
             if(borrow.isReturned) list.add(borrow);
         }
         return list;
+    }
+    public DefaultListModel<String> toDefaultListBorrow(){
+        DefaultListModel<String> rs = new DefaultListModel<String>();
+        // for (Book book : books) {
+        //     rs.addElement(book.print());
+        // }
+        ArrayList<Borrow> list = showBorrowingBook();
+        for(Borrow borrow: list){
+            String name = borrow.reader.name;
+            String bookname = borrow.book.name;
+            String date = borrow.dateBorrow.toString();
+
+            rs.addElement("Người mượn: " + name + " Sách: " + bookname + " Ngày mượn: " + date);
+        }
+        
+        return rs;
     }
 }

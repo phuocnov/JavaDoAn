@@ -36,7 +36,6 @@ public class ReaderViewAdd extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 try {
                     Reader reader = controller.create(fieldName.getText());
-                    Testing.printReaders(controller.readers, controller.readerSize);
                     labelResult.setText("Thành công: " + reader.print());
                     
                 } catch (IOException e1) {

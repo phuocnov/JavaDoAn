@@ -9,8 +9,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.swing.DefaultListModel;
+
 import java.io.OutputStreamWriter;
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 
 
 public class BorrowController {
@@ -120,6 +123,23 @@ public class BorrowController {
             }
         }
     }
+    public boolean returnBookCheck(String readerID, String bookID, String dateBorrow){
+        Reader reader = readerController.find(readerID);
+        Book book = bookController.find(bookID);
+        try{
+            LocalDate date = LocalDate.parse(dateBorrow);
+            if(reader != null && book != null){
+                for (Borrow borrow : borrowData) {
+                    if(borrow.reader == reader && borrow.book == book && borrow.dateBorrow.isEqual(date)) return true;
+                }
+            }
+            else return false;
+        }
+        catch(DateTimeParseException  e){
+            return false;
+        }
+        return false;
+    }
     // Kiểm tra xem người dùng đang mượn những cuốn sách nào
     public ArrayList<Borrow> showBookBorrowed(String readerID){
         Reader reader = readerController.find(readerID);
@@ -161,5 +181,21 @@ public class BorrowController {
             if(borrow.isReturned) list.add(borrow);
         }
         return list;
+    }
+    public DefaultListModel<String> toDefaultListBorrow(){
+        DefaultListModel<String> rs = new DefaultListModel<String>();
+        // for (Book book : books) {
+        //     rs.addElement(book.print());
+        // }
+        ArrayList<Borrow> list = showBorrowingBook();
+        for(Borrow borrow: list){
+            String name = borrow.reader.name;
+            String bookname = borrow.book.name;
+            String date = borrow.dateBorrow.toString();
+
+            rs.addElement("Người mượn: " + name + " Sách: " + bookname + " Ngày mượn: " + date);
+        }
+        
+        return rs;
     }
 }

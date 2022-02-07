@@ -1,6 +1,5 @@
 package src;
 import java.io.IOException;
-
 import java.awt.event.*;
 import javax.swing.*;
 
@@ -21,7 +20,7 @@ public class BookViewAdd extends JPanel{
     private JLabel labelNumber;
     private JTextField fieldNumber;
     private JButton buttonAdd;
-
+    private JLabel labelStatus;
     BookViewAdd(BookController controller){
         //construct components
         labelTitle = new JLabel ("THÊM SÁCH");
@@ -39,6 +38,7 @@ public class BookViewAdd extends JPanel{
         labelNumber = new JLabel ("Số lượng");
         fieldNumber = new JTextField (5);
         buttonAdd = new JButton ("Thêm");
+        labelStatus = new JLabel("trạng thái");
 
         //adjust size and set layout
         // setPreferredSize (new Dimension (892, 592));
@@ -59,6 +59,7 @@ public class BookViewAdd extends JPanel{
         add (fieldFloor);
         add (labelNumber);
         add (fieldNumber);
+        add (labelStatus);
         add (buttonAdd);
 
         //set component bounds (only needed by Absolute Positioning)
@@ -76,10 +77,11 @@ public class BookViewAdd extends JPanel{
         fieldFloor.setBounds (305, 215, 100, 25);
         labelNumber.setBounds (10, 250, 100, 25);
         fieldNumber.setBounds (95, 250, 100, 25);
-        buttonAdd.setBounds (105, 310, 145, 30);
+        labelStatus.setBounds(115, 300, 100, 25);
+        buttonAdd.setBounds (105, 340, 145, 30);
         buttonAdd.addActionListener(new ActionListener(){
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e){
                 // System.out.println("field Cate: " + fieldCate.getText());
                 try {
                     String name = fieldName.getText();
@@ -92,6 +94,7 @@ public class BookViewAdd extends JPanel{
                     controller.create(name, author, category, shelve, floor, number);
                 } catch (IOException e1) {
                     e1.printStackTrace();
+                    // labelStatus.setText("Nhập dữ liệu sai, vui lòng nhập lại");
                 }
             }
         });

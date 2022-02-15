@@ -5,17 +5,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-// enum Category{
-//     SACH_GIAO_KHOA,
-//     TRIET_HOC_TAM_LY,
-//     TON_GIAO,
-//     KHOA_HOC_TU_NHIEN,
-//     CONG_NGHE,
-//     NGHE_THUAT,
-//     VAN_HOC,
-//     DIA_LY_LICH_SU
-// }
-
 public class Book {
     String ID;
     String name;
